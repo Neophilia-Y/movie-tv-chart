@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "MymeTV",
+    "slug": "MymeTV",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "MymeTV"
+}
