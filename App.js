@@ -1,13 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, useColorScheme } from 'react-native';
+import AppLoading from 'expo-app-loading';
+import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import Root from './navigation/Root';
+
+const queryClient = new QueryClient();
+
 
 export default function App() {
+
+  const isDark = useColorScheme() === "dark";
+  const DarkMode = true;
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <NavigationContainer theme={DarkMode ? DarkTheme : DefaultTheme}>
+        <Root />
+      </NavigationContainer>
+    </QueryClientProvider>
   );
 }
 
